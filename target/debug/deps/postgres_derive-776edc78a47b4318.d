@@ -1,0 +1,12 @@
+/workspaces/rust/target/debug/deps/postgres_derive-776edc78a47b4318.d: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/accepts.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/case.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/composites.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/enums.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/fromsql.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/overrides.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/tosql.rs
+
+/workspaces/rust/target/debug/deps/libpostgres_derive-776edc78a47b4318.so: /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/lib.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/accepts.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/case.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/composites.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/enums.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/fromsql.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/overrides.rs /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/tosql.rs
+
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/lib.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/accepts.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/case.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/composites.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/enums.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/fromsql.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/overrides.rs:
+/usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/postgres-derive-0.4.6/src/tosql.rs:
