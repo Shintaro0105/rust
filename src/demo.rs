@@ -1,32 +1,61 @@
-use tokio_postgres::{NoTls, Error};
-use postgres_types::FromSql; // chrono と統合するため
+use axum::{
+    routing::get,
+    response::Json,
+    Router,
+};
+use serde::Serialize;
+use tokio_postgres::{NoTls, Client};
 
-#[tokio::main]
-async fn main() -> Result<(), Error> {
-    // 接続文字列
-    let conn_str = "host=localhost port=5432 user=postgres password=postgres dbname=demo";
+#[derive(Serialize)]
+struct User {
+    id: i32,
+    name: String,
+    email: String,
+    created_at: chrono::NaiveDateTime,
+}
 
-    // 接続
-    let (client, connection) = tokio_postgres::connect(conn_str, NoTls).await?;
+async fn get_users_handler() -> Json<Vec<User>> {
+    // DBに接続
+    let (client, connection) =
+        tokio_postgres::connect("host=db user=postgres password=postgres dbname=demo", NoTls)
+            .await
+            .expect("DB接続失敗");
 
-    // connection を別タスクで駆動（これをしないと通信が動かない）
+    // 接続をバックグラウンドで処理
     tokio::spawn(async move {
         if let Err(e) = connection.await {
             eprintln!("connection error: {}", e);
         }
     });
 
-    // データを取得
-    let rows = client.query("SELECT id, name, email, created_at FROM users", &[]).await?;
+    // クエリ実行
+    let rows = client.query("SELECT id, name, email, created_at FROM users", &[])
+        .await
+        .expect("クエリ失敗");
 
-    println!("--- users table ---");
-    for row in rows {
-        let id: i32 = row.get("id");
-        let name: String = row.get("name");
-        let email: String = row.get("email");
-        let created_at: chrono::NaiveDateTime = row.get("created_at");
-        println!("{}: {} <{}> ({})", id, name, email, created_at);
-    }
+    // データをRust構造体に変換
+    let users: Vec<User> = rows.into_iter().map(|row| User {
+        id: row.get("id"),
+        name: row.get("name"),
+        email: row.get("email"),
+        created_at: row.get("created_at"),
+    }).collect();
 
-    Ok(())
+    Json(users)
+}
+
+#[tokio::main]
+async fn main() {
+    // ルーター作成
+    let app = Router::new()
+        .route("/users", get(get_users_handler));
+
+    // サーバー起動
+    println!("🚀 Server running on http://localhost:3000");
+    axum::serve(
+        tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap(),
+        app
+    )
+    .await
+    .unwrap();
 }
