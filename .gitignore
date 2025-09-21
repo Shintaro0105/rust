@@ -1,0 +1,17 @@
+# Rust / Cargo
+target/
+Cargo.lock
+
+# # VSCode
+# .vscode/
+
+# # Devcontainer
+# .devcontainer/
+
+# Logs
+*.log
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+*.swp
